@@ -1,0 +1,7 @@
+﻿  eda.c
+C:\IPCA\2º ano\2º semestre\Estrutura de Ddados\TrabalhoFase2\TrabalhoFase2\TrabalhoFase2\eda.c(154,9): warning C4101: 'qtd': unreferenced local variable
+C:\IPCA\2º ano\2º semestre\Estrutura de Ddados\TrabalhoFase2\TrabalhoFase2\TrabalhoFase2\eda.c(446,26): warning C4013: 'strlen' undefined; assuming extern returning int
+  main.c
+  Generating Code...
+C:\IPCA\2º ano\2º semestre\Estrutura de Ddados\TrabalhoFase2\TrabalhoFase2\TrabalhoFase2\eda.c(185): warning C4715: 'lista_operacoes_job': not all control paths return a value
+  TrabalhoFase2.vcxproj -> C:\IPCA\2º ano\2º semestre\Estrutura de Ddados\TrabalhoFase2\TrabalhoFase2\Debug\TrabalhoFase2.exe
