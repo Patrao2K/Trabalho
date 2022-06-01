@@ -1,9 +1,9 @@
 /*
-* Project: TrabalhoFase1
+* Project: TrabalhoFase2
 * Purpose: Licenciatura de Engenharia Informática Médica
 * Company: IPCA
 * Created by: Joao
-* Created on: 29/04/2022
+* Created on: 16/05/2022
 * Email: a21210@alunos.ipca.pt
 **/
 
@@ -17,7 +17,12 @@ maquina criar_maquina(int id, int tempo) {
     return m;
 }
 
-// criar operações
+/// <summary>
+/// criar operações
+/// </summary>
+/// <param name="lista_maquinas"></param>
+/// <param name="quantidade"></param>
+/// <returns></returns>
 lista* inicia_lista(maquina* lista_maquinas, int quantidade) {
     lista* ls = (lista*)malloc(sizeof(lista));
     for (int i = 0; i < quantidade; i++) {
@@ -28,7 +33,12 @@ lista* inicia_lista(maquina* lista_maquinas, int quantidade) {
     ls->prox = NULL;
     return ls;
 }
-
+/// <summary>
+/// Função auxiliar
+/// </summary>
+/// <param name="ls"></param>
+/// <param name="anterior"></param>
+/// <param name="idx"></param>
 void remover_no(lista** ls, lista* anterior, int idx) {
     if (*ls == NULL) {
         return;
@@ -67,7 +77,12 @@ void remover_no(lista** ls, lista* anterior, int idx) {
         remover_no(&(*ls)->prox, *ls, idx - 1);
     }
 }
-
+/// <summary>
+/// Função auxiliar
+/// </summary>
+/// <param name="ls"></param>
+/// <param name="lista_maquinas"></param>
+/// <param name="quantidade"></param>
 void inserir(lista** ls, maquina* lista_maquinas, int quantidade) {
     if (*ls == NULL) {
         *ls = inicia_lista(lista_maquinas, quantidade);
@@ -92,7 +107,11 @@ int tamanho_lista(lista* ls) {
 
     return tam;
 }
-
+/// <summary>
+/// Função auxiliar
+/// </summary>
+/// <param name="qtd"></param>
+/// <returns></returns>
 maquina* inserir_operacao_aux(int* qtd) {
     printf("Digite o numero de maquinas que podem executar essa operacao\n");
     scanf("%d", qtd);
@@ -113,7 +132,11 @@ int existe_job() {
     }
     return idx > 0;
 }
-
+/// <summary>
+/// Função auxiliar
+/// </summary>
+/// <param name="i"></param>
+/// <returns></returns>
 int escolher_job(int i) {
     if (existe_job() == 0) {
         return -1;
@@ -137,7 +160,10 @@ int escolher_job(int i) {
 
     return indice_job;
 }
-
+/// <summary>
+/// Inserir operacao
+/// </summary>
+/// <returns></returns>
 int inserir_operacao() {
     int indice_job = escolher_job(1);
     if (indice_job == -1) {
@@ -150,6 +176,9 @@ int inserir_operacao() {
     return 1;
 }
 
+/// <summary>
+/// criar job
+/// </summary>
 void criar_job() {
     int qtd;
     for (int i = 0; i < MAX_JOB; i++) {
@@ -162,6 +191,10 @@ void criar_job() {
     }
 }
 
+/// <summary>
+/// Função para listar 
+/// </summary>
+/// <returns></returns>
 int lista_operacoes_job() {
     int indice_job = escolher_job(0);
     if (indice_job == -1) {
@@ -183,7 +216,10 @@ int lista_operacoes_job() {
         idx++;
     }
 }
-
+/// <summary>
+/// Remover operacao
+/// </summary>
+/// <returns></returns>
 int remover_operacao() {
     int indice_job = escolher_job(1);
     if (indice_job == -1) {
@@ -216,7 +252,10 @@ int remover_operacao() {
     remover_no(&JOBS[indice_job], NULL, op);
     return 1;
 }
-
+/// <summary>
+/// Editar a operacao
+/// </summary>
+/// <returns></returns>
 int alterar_operacao() {
     int indice_job = escolher_job(1);
     if (indice_job == -1) {
@@ -262,7 +301,12 @@ int alterar_operacao() {
     aux->quantidade = qtd;
     return 1;
 }
-
+/// <summary>
+/// Tempo minimo funcao auxiliar
+/// </summary>
+/// <param name="indice_job"></param>
+/// <param name="f"></param>
+/// <returns></returns>
 int listar_tempo_minimo_aux(int indice_job, int f) {
     lista* aux = JOBS[indice_job];
 
@@ -294,7 +338,10 @@ int listar_tempo_minimo_aux(int indice_job, int f) {
         printf("\nTempo minimo necessario para completar o Job %d eh: %d\n", indice_job, tempo_minimo);
     return tempo_minimo;
 }
-
+/// <summary>
+/// tempo minimo 
+/// </summary>
+/// <returns></returns>
 int listar_tempo_minimo() {
     int indice_job = escolher_job(1);
     if (indice_job == -1) {
@@ -303,7 +350,12 @@ int listar_tempo_minimo() {
 
     return listar_tempo_minimo_aux(indice_job, 1);
 }
-
+/// <summary>
+/// tempo maximo funcao auxiliar
+/// </summary>
+/// <param name="indice_job"></param>
+/// <param name="f"></param>
+/// <returns></returns>
 int listar_tempo_maximo_aux(int indice_job, int f) {
     lista* aux = JOBS[indice_job];
 
@@ -335,7 +387,10 @@ int listar_tempo_maximo_aux(int indice_job, int f) {
         printf("\nTempo maximo necessario para completar o Job %d eh: %d\n", indice_job, tempo_maximo);
     return tempo_maximo;
 }
-
+/// <summary>
+///  tempo maximo
+/// </summary>
+/// <returns></returns>
 int listar_tempo_maximo() {
     int indice_job = escolher_job(1);
     if (indice_job == -1) {
@@ -344,7 +399,10 @@ int listar_tempo_maximo() {
 
     return listar_tempo_maximo_aux(indice_job, 1);
 }
-
+/// <summary>
+/// tempo medio
+/// </summary>
+/// <returns></returns>
 int listar_tempo_medio() {
     int indice_job = escolher_job(1);
     if (indice_job == -1) {
@@ -389,7 +447,10 @@ int listar_tempo_medio() {
     printf("Tempo medio para executar a operacao eh: %.2lf\n", tempo_medio / aux->quantidade);
     return 1;
 }
-
+/// <summary>
+/// remover job
+/// </summary>
+/// <returns></returns>
 int remover_job() {
     int indice_job = escolher_job(1);
     if (indice_job == -1) {
@@ -405,7 +466,10 @@ int remover_job() {
     return 1;
 }
 
-// MENU 
+/// <summary>
+/// menu
+/// </summary>
+/// <returns></returns>
 int menu() {
     system("cls");
     printf("1  - Inserir job\n");
@@ -441,6 +505,9 @@ void print_chars(char ch, int count, int newline) {
     }
 }
 
+/// <summary>
+/// Proposta de escalonamento
+/// </summary>
 void mostrar_tabela() {
     char* str1 = "Process Plan";
     int len_str1 = strlen(str1);

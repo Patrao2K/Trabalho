@@ -1,16 +1,19 @@
 /*
-* Project: TrabalhoFase1
+* Project: TrabalhoFase2
 * Purpose: Licenciatura de Engenharia Informática Médica
 * Company: IPCA
 * Created by: Joao
-* Created on: 29/04/2022
+* Created on: 16/05/2022
 * Email: a21210@alunos.ipca.pt
 **/
 
 
 #include "eda1.h"
 
-
+/// <summary>
+/// Programa principal 
+/// </summary>
+/// <returns></returns>
 int main() {
     while (1) {
         switch (menu()) {
@@ -64,7 +67,10 @@ int main() {
             break;
         }
 
-              
+        /// <summary>
+        /// Faz a gravação
+        /// </summary>
+        /// <returns></returns>
         case 6: {
             char buf[50];
             printf("Digite o nome do arquivo que voce deseja salvar os jobs: ");
@@ -84,7 +90,7 @@ int main() {
 
                 int tam = tamanho_lista(JOBS[idx]);
 
-                // quantidade de operacoes
+                
                 fprintf(fp, "%d\n", tam);
 
                 for (int i = 0; i < tam; i++) {
@@ -103,7 +109,10 @@ int main() {
             getchar();
             break;
         }
-
+        /// <summary>
+        /// Carrega os ficheiros
+        /// </summary>
+        /// <returns></returns>
         case 7: {
             char buf[50];
             printf("Digite o nome do arquivo que voce deseja carregar os dados: ");

@@ -1,9 +1,9 @@
 /*
-* Project: TrabalhoFase1
+* Project: TrabalhoFase2
 * Purpose: Licenciatura de Engenharia Informática Médica
 * Company: IPCA
 * Created by: Joao
-* Created on: 29/04/2022
+* Created on: 16/05/2022
 * Email: a21210@alunos.ipca.pt
 **/
 
@@ -13,11 +13,17 @@
 #define MAX_MAQUINA 100
 #define MAX_JOB     100
 
+/// <summary>
+/// Estrutura de dados
+/// </summary>
 typedef struct maquina {
     int id;
     int tempo;
 } maquina;
 
+/// <summary>
+/// Estrutura de dados
+/// </summary>
 typedef struct lista {
     maquina lista_maquinas[MAX_MAQUINA];
     int quantidade;
